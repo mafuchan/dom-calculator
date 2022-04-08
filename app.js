@@ -1,15 +1,21 @@
-const operators = document.querySelectorAll(".operator")
-const screen = document.querySelector("#screen")
-const buttons = document.querySelectorAll(".buttons")
+const buttons = document.querySelectorAll("span:not(.operator)");
+const operators = document.querySelectorAll(".operator");
+const screen = document.querySelector("#screen");
+const clear = document.querySelector("#clear");
+const equals = document.querySelector("#equals");
 
-operators.forEach(operator => {
-    operator.addEventListener("click", (event) => {
-        screen.textContent = event.target.textContent
-    })
-})
+buttons.forEach(buttons => {
+    buttons.addEventListener("click", (event) => {
+        screen.textContent += event.target.textContent
+    });
+});
 
-buttons.forEach(button => {
-    button.addEventListener("click", (event) => {
+operators.forEach(operators => {
+    operators.addEventListener("click", (event) => {
         screen.textContent = event.target.textContent
-    })
-})
+    });
+});
+
+clear.addEventListener("click", () => {
+    screen.textContent = "";
+});
